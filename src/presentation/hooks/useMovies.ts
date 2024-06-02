@@ -12,9 +12,12 @@ export const useMovies = () => {
   }, []);
 
   const initialLoad = async () => {
-    const nowPlayingMovies = await UseCases.moviesNowPlayingUseCase(
-      movieDBFetcher,
-    );
+    const [resp1, resp2, resp3, resp4] = await Promise.all([
+      UseCases.moviesNowPlayingUseCase(movieDBFetcher),
+      UseCases.moviesPopularUseCase(movieDBFetcher),
+      UseCases.moviesTopRatedUseCase(movieDBFetcher),
+      UseCases.moviesUpComingUseCase(movieDBFetcher),
+    ]);
   };
   return {
     isLoading,
