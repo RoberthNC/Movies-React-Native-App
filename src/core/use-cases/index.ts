@@ -1,3 +1,4 @@
+export * from './movie/get-by-id.use-case';
 export * from './movies/now-playing.use-case';
 export * from './movies/now-playing.use-case';
 export * from './movies/popular.use-case';
